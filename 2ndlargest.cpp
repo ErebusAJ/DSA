@@ -21,6 +21,11 @@ int removeDuplicates(vector<int>& nums) {
 
 int main()
 {
-    vector<int> arr{1,2,3,4,0,0,0};
-    cout << count(arr.begin(), arr.end(), 0);
+    vector<int> arr{1,2,3,4,5};
+    vector<int> arr2{1,2,3,4};
+    auto it = find(arr.begin(), arr.end(), 4);
+    cout << *it;
+    if(*it==0){
+        cout << "rrr";
+    }
 }
