@@ -4,23 +4,22 @@ using namespace std;
 
 int maxLen(vector<int> &nums)
 {
-    int count = 0;
-    for (int i = 0; i < nums.size(); i++)
-    {
-        for (int j = nums.size() - 1; j > i; j--)
-        {
-            int sum = accumulate(nums.begin() + i, nums.begin() + j + 1, 0);
-            if (sum == 0)
-            {
-                if (count < (j - i))
-                {
-                    count = j - i;
-                }
+    int maxi = 0, sum = 0;
+    unordered_map<int, int> sumMap;
+    for(int i = 1; i < nums.size(); i++){
+        sum += nums[i];
+        if(sum == 0){
+            maxi = i + 1;
+        }else{
+            if(sumMap.find(sum) != sumMap.end()){
+                maxi = max(maxi, i - sumMap[sum]);
+            }else{
+                sumMap[sum] = i;
             }
         }
     }
 
-    return count;
+    return maxi;
 }
 
 int main()
