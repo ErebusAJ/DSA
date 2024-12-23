@@ -24,8 +24,12 @@ vector<int> findTwoElement(vector<int> &arr)
 
 int main()
 {
-    vector<int> num{4,3,6,2,1,1};
-    vector<int> result = findTwoElement(num);
-    for (int i : result)
-        cout << i << " ";
+    vector<int> nums{4,6,3,1,2,1};
+    vector<int> result = findTwoElement(nums);
+    int val = nums[0];
+    for (int i = 1; i < nums.size(); i++){
+        val ^= nums[i];
+    }
+
+    cout << val << endl;
 }
