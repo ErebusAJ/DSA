@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -30,12 +30,17 @@ int binary_search(int arr[], int n, int key)
 
 int main()
 {
-    int arr[] = {1, 32, 56, 73, 82, 91};
-    int n = sizeof(arr) / sizeof(int);
+    vector<int> arr{1, 32, 56, 73, 82, 91};
+    // int n = sizeof(arr) / sizeof(int);
 
-    int key;
-    cout << "Enter no: ";
-    cin >> key;
+    int start = 0, end = arr.size() - 1;
+    int mid = start + (end - start) / 2;
 
-    cout << binary_search(arr, n, key);
+    cout << mid;
+
+    // int key;
+    // cout << "Enter no: ";
+    // cin >> key;
+
+    // cout << binary_search(arr, n, key);
 }

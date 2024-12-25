@@ -4,32 +4,33 @@ using namespace std;
 
 vector<int> findTwoElement(vector<int> &arr)
 {
-    vector<int> result(2, 0);
-    sort(arr.begin(), arr.end());
-    int j = 1;
+    set<int> check;
+    int i = 1;
+    int repeat, miss;
+    while (i < arr.size())
+    {
+        check.insert(i);
+        i++;
+    }
+
     for (int i = 0; i < arr.size(); i++)
     {
-        if (arr[i] != j)
+        size_t a = check.erase(arr[i]);
+        if (a == 0)
         {
-            if (arr[i] == arr[i - 1])
-            {
-                result[0] = arr[i];
-            }
-            result[1] = j;
+            repeat = arr[i];
         }
-        j++;
     }
-    return result;
+    miss = *check.begin();
+    return {repeat, miss};
 }
 
 int main()
 {
-    vector<int> nums{4,6,3,1,2,1};
+    vector<int> nums{2, 2};
     vector<int> result = findTwoElement(nums);
-    int val = nums[0];
-    for (int i = 1; i < nums.size(); i++){
-        val ^= nums[i];
+    for (int i : result)
+    {
+        cout << i << " ";
     }
-
-    cout << val << endl;
 }
