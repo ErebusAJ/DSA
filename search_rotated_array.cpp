@@ -5,60 +5,37 @@ using namespace std;
 int search(vector<int> &nums, int target)
 {
     int n = nums.size();
-    int s1 = 0, e1 = -1, s2 = -1, e2 = n - 1;
-    int j = 1;
-    while (j < n)
+    int lo = 0, hi = n - 1;
+
+    int mid = lo + (hi - lo) / 2;
+
+    while (lo <= hi)
     {
-        if (nums[j - 1] < nums[j])
+        if (nums[mid] == target)
+            return mid;
+
+        if (nums[lo] <= nums[mid])
         {
-            j++;
+            if (nums[lo] <= target && nums[mid] >= target)
+            {
+                hi = mid - 1;
+            }
+            else
+            {
+                lo = mid + 1;
+            }
         }
         else
         {
-            e1 = j - 1;
-            s2 = j;
-            break;
+            if (nums[mid] <= target && nums[hi] >= target)
+            {
+                lo = mid + 1;
+            }else{
+                hi = mid - 1;
+            }
         }
-    }
-    if (e1 == -1)
-    {
-        e1 = e2;
-        s2 = s1;
-    }
-    int mid = s1 + (e1 - s1) / 2;
-    while (s1 <= e1)
-    {
-        if (nums[mid] == target)
-        {
-            return mid;
-        }
-        else if (nums[mid] > target)
-        {
-            e1 = mid - 1;
-        }
-        else if (nums[mid] < target)
-        {
-            s1 = mid + 1;
-        }
-        mid = s1 + (e1 - s1) / 2;
-    }
 
-    mid = s2 + (e2 - s2) / 2;
-    while (s2 <= e2)
-    {
-        if (nums[mid] == target)
-        {
-            return mid;
-        }
-        else if (nums[mid] > target)
-        {
-            e2 = mid - 1;
-        }
-        else if (nums[mid] < target)
-        {
-            s2 = mid + 1;
-        }
-        mid = s2 + (e2 - s2) / 2;
+        mid = lo + (hi - lo) / 2;
     }
 
     return -1;
