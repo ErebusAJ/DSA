@@ -17,8 +17,16 @@ int subarraysWithXOR(vector<int> &nums, int b) {
     for(auto pair : m){
         if(pair.second == b) ctr++;
     }
-    ctr += same;
-
+    xr = 0;
+    unordered_map<int, int> m2{};
+    for(int i = nums.size() - 1; i >= 0; i--){
+        xr ^= nums[i];
+        if(m2.find(xr) != m2.end()) xr = 0;
+        m2.insert(make_pair(i, xr));
+    }
+    for(auto pair : m2){
+        if(pair.second == b) ctr++;
+    }
     return ctr;
 }
 
