@@ -50,7 +50,7 @@ vector<int> findFloorCeil(int x, vector<int> &arr)
 int main()
 {
     vector<int> nums{15, 28};
-    vector<int> result = findFloorCeil(nums, 37);
+    vector<int> result = findFloorCeil(37, nums);
 
     for (int i : result)
     {
