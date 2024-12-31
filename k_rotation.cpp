@@ -19,7 +19,7 @@ int findKRotation(vector<int> &nums){
 }
 
 int main(){
-    vector<int> nums{8, 10, 21, 31, 43, 45};
-    // vector<int> nums{38, 40, 43, 44, 4, 9, 12, 21, 32, 34};
+    // vector<int> nums{8, 10, 21, 31, 43, 45};
+    vector<int> nums{38, 40, 43, 44, 4, 9, 12, 21, 32, 34};
     cout << findKRotation(nums);
 }
