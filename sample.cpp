@@ -79,19 +79,16 @@ Node *insertAtEnd(Node *head, int x) {
 
 int main(){
     Node *head = new Node();
-    // Node *tail = head;
+    Node *tail = head;
 
 
-    // insertAtHead(head, 20);
-    // insertAtTail(tail, 30);
-    // insertAtMid(head, 40, 3);
+    insertAtHead(head, 20);
+    insertAtTail(tail, 30);
 
-    // printLL(head);
+    printLL(head);
 
-    // cout << "Size: " << sizeLL(head) << endl;
+    cout << "Size: " << sizeLL(head) << endl;
 
-    Node *newH = insertAtEnd(head, 345);
-    printLL(newH);
 
 
 }

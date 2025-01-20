@@ -1,0 +1,63 @@
+Node *mergeList(Node *first, Node *second)
+{
+    Node *temp;
+    Node *merge = (first->data > second->data) ? second : first;
+    temp = merge;
+    if (merge == first)
+        first = first->next;
+    else
+        second = second->next;
+
+    while (first != NULL && second != NULL)
+    {
+        if (first->data > second->data)
+        {
+            temp->next = second;
+            second = second->next;
+            temp = temp->next;
+        }
+        else
+        {
+            temp->next = first;
+            first = first->next;
+            temp = temp->next;
+        }
+    }
+
+    while (second != NULL)
+    {
+        temp->next = second;
+        second = second->next;
+        temp = temp->next;
+    }
+
+    while (first != NULL)
+    {
+        temp->next = first;
+        first = first->next;
+        temp = temp->next;
+    }
+
+    return merge;
+}
+
+Node *sortList(Node *head)
+{
+    if (head == NULL || head->next == NULL)
+        return head;
+
+    Node *fast = head->next->next;
+    Node *slow = head;
+    while (fast != NULL && fast->next != NULL)
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    Node *newHead = slow->next;
+    slow->next = NULL;
+    Node *first = sortList(head);
+    Node *second = sortList(newHead);
+    Node *merge = mergeList(first, second);
+
+    return merge;
+}
