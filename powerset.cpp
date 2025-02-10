@@ -74,6 +74,4 @@ int main()
         }
         cout << endl;
     }
-    set<vector <int>> s;
-    s.insert({12,3});
 }
