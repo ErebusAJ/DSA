@@ -40,4 +40,10 @@ int main()
     {
         cout << i << " ";
     }
+
+    string s;
+    int a = 2;
+    char c = '0' + a;
+    s.push_back(c);
+    cout << s;
 }
