@@ -1,6 +1,0 @@
-====> DSA Algortihtm:
-	-Binary Search: (Find mid till == key)
-	-Bubble Sort: (Place largest element to last sorted pos.)
-	-Selection Sort: (Place smallest element to it's correct pos.)
-
-		

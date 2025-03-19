@@ -68,6 +68,8 @@ int main()
 
     vector<vector<int>> result = subsets(nums);
 
+    cout << result.size() << endl;
+
     for(vector i : result){
         for(int j : i){
             cout << j << " ";
